@@ -163,7 +163,7 @@ function appleIndex(fruit) {
  * the returned value should be: [ false, true, false, false, true, false ].
 */
 function isItAnApple(fruit) {
-  let newArr = []
+  let newArr = [];
   for (let i = 0; i < fruit.length; i++) {
     if (fruit[i] === "apple"){
       newArr.push(true);
@@ -230,7 +230,7 @@ function get3rdCar(inventory) {
 */
 function getCarInfoByIndex(inventory, index) {
   let indexNum = inventory[index];
-  return `This is a ${indexNum.car_make} ${indexNum.car_model}`;
+  return "This is a " + indexNum.car_make + " " + indexNum.car_model;
 }
 
 /**
@@ -245,7 +245,7 @@ function getCarInfoByIndex(inventory, index) {
  * it will return `This is a Lincoln Town Car`.
 */
 function getLastCarInfo(cars) {
- 
+ return "This is a " + cars[cars.length -1].car_make + " " + cars[cars.length-1].car_model;
 }
 
 /**
@@ -257,8 +257,12 @@ function getLastCarInfo(cars) {
  *     (1) an array which is an inventory of cars like the one inside /data/inventory.js.
  * getModelYears returns an array containing all the 'car_year's in the inventory.
 */
-function getModelYears(/* code here */) {
-  /* code here */
+function getModelYears(cars) {
+  let newArr = [];
+  for (let i = 0; i < cars.length; i++) {
+    newArr.push(cars[i].car_year)
+  }
+  return newArr;
 }
 
 /**
@@ -275,8 +279,9 @@ function getModelYears(/* code here */) {
  * For example, if getCarInfoById is invoked with the inventory and the number 1,
  * it will return `This is a Lincoln Navigator`.
 */
-function getCarInfoById(/* code here */) {
-  /* code here */
+function getCarInfoById(cars, id) {
+  let indexNum = cars[id]["id"];
+  return "This is a " + indexNum.car_make + " " + indexNum.car_model;
 }
 
 /**
@@ -293,9 +298,16 @@ function getCarInfoById(/* code here */) {
  * with a `car_year` which is at most the given desired max year,
  * in the same order as they appear in the original inventory.
 */
-function getOlderCars(/* code here */) {
-  /* code here */
-}
+function getOlderCars(cars, maxYear) {
+  let newArr = [];
+  for (let i = 0; i < cars.length; i++) {
+    if (cars[i]["car_year"] <= maxYear) {
+      newArr.push(cars[i]);
+  }
+ }
+ return newArr;
+} 
+
 
 /**
  * ### Challenge `getGermanCars`
@@ -310,9 +322,9 @@ function getOlderCars(/* code here */) {
  * made by either `Audi` or `Mercedes-Benz` or `Volkswagen` or `BMW`,
  * in the same order as they appear in the original inventory.
 */
-function getGermanCars(/* code here */) {
-  /* code here */
-}
+function getGermanCars(cars) {
+  
+} 
 
 /**
  * ### Challenge `carMaker`
