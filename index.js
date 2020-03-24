@@ -280,8 +280,13 @@ function getModelYears(cars) {
  * it will return `This is a Lincoln Navigator`.
 */
 function getCarInfoById(cars, id) {
-  let indexNum = cars[id]["id"];
-  return "This is a " + indexNum.car_make + " " + indexNum.car_model;
+  // let indexNum = cars[id]["id"];
+  for (let i= 0; i < cars.length; i++){
+    if (cars[i].id === id){
+      return "This is a " + cars[i].car_make + " " + cars[i].car_model;
+    }
+  }
+  // 
 }
 
 /**
